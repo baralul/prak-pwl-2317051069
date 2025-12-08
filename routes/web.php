@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/profile/{nama}/{npm}/{kelas}', [ProfileController::class, 'profile']);
+
+Route::post('/user', [UserController::class, 'store']);
