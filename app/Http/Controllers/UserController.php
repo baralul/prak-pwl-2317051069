@@ -13,12 +13,12 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->userModel = new userModel();
+        $this->userModel = new UserModel();
         $this->kelasModel = new Kelas();
     }
 
     public function create(){
-        $kelasModel = new kelas();
+        $kelasModel = new Kelas();
         $kelas = $kelasModel->getKelas();
         $data = [
             'title' => 'Create User',
@@ -38,16 +38,10 @@ class UserController extends Controller
 
     }
 
-    public function getUser(){
-        return $this->join('kelas', 'kelas_id', '=', 'user.kelas_id')
-                    ->select('user.*', 'kelas.nama_kelas as nama_kelas')
-                    ->get();
-    }
-
     public function index(){
         $data = [
             'title' => 'List User',
-            'users' => $this-userModel->getUser(),
+            'users' => $this->userModel->getUser(),
         ];
         return view('list_user', $data);
     }
