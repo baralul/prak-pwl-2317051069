@@ -12,6 +12,7 @@
                 <th>ID</th>
                 <th>Nama Mata Kuliah</th>
                 <th>SKS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,15 @@
                 <td>{{ $mk->id }}</td>
                 <td>{{ $mk->nama_mk }}</td>
                 <td>{{ $mk->sks }}</td>
+                <td>
+                    <a href="/matakuliah/{{ $mk->id }}/edit">Edit</a>
+                    <form action="/matakuliah/{{ $mk->id }}" method="POST" style="display:inline"
+                        onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                    </form> 
+                </td>
             </tr>
             @endforeach
         </tbody>

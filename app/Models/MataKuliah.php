@@ -22,7 +22,6 @@ class Matakuliah extends Model
     {
         parent::boot();
 
-        // This automatically generates a UUID when you create a new record
         static::creating(function ($model) {
             if (empty($model->{$model->getKeyName()})) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
