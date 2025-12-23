@@ -30,7 +30,7 @@ class UserController extends Controller
     public function store(Request $request){
         $this->userModel->create([
             'nama' => $request->input('nama'),
-            'nim' => $request->input('nim'),
+            'nim' => $request->input('npm'),
             'kelas_id' => $request->input('kelas_id'),
         ]);
 
