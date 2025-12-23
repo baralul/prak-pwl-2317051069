@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+class Matakuliah extends Model
+{
+    use HasFactory;
+
+    protected $table = 'mata_kuliah';
+    protected $guarded = ['id'];
+
+    // These two lines tell Laravel NOT to expect an integer ID (1, 2, 3...)
+    // but rather a String ID (UUID)
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // This automatically generates a UUID when you create a new record
+        static::creating(function ($model) {
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = (string) Str::uuid();
+            }
+        });
+    }
+
+    public function getAllMK()
+    {
+        return $this->all();
+    }
+}
