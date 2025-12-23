@@ -1,0 +1,48 @@
+/* Table Container */
+.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 25px 0;
+    font-family: 'Poppins', sans-serif; /* Ensure font is loaded in HTML head */
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* Header */
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Cells */
+.styled-table th, 
+.styled-table td {
+    padding: 12px 15px;
+}
+
+/* Body Rows */
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Zebra Striping (Even rows) */
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+/* Bottom Border */
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+/* Hover Effect */
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    color: #009879;
+    cursor: pointer;
+}

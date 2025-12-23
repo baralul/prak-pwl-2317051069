@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@vite('resources/css/table.css')
     <h1>Daftar Pengguna</h1>
-    <table border="1" cellpadding="10" cellspacing="0">
+    <table class ="styled-table">
         <thead>
             <tr>
                 <th>ID</th>
